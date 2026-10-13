@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' ; img-src 'self'; font-src 'self'; connect-src https://api.web3forms.com; object-src 'none'; base-uri 'none'; form-action https://api.web3forms.com">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gedankensortierer von Frau H.: Gedanken rausschreiben, sortieren und einen kleinen nächsten Schritt finden – passend zu deiner Energie. Läuft komplett im Browser.">
+  <meta name="theme-color" content="#fbf5e9">
+  <title>Gedankensortierer – Innenleben</title>
+  <link rel="stylesheet" href="site.css?v=20261013y">
+</head>
+<body>
+  <a class="skip" href="#inhalt">Zum Inhalt</a>
+  <div class="wrap">
+    <header><a class="brand" href="index.html" aria-label="Innenleben Startseite"><img src="material/logo/innenleben.webp" alt="Innenleben" width="1600" height="992"></a><nav aria-label="Hauptnavigation"><a href="index.html#ueber">Über Frau H.</a><a href="index.html#entdecken">Zum Entdecken</a><a href="index.html#termine">Demnächst</a><a href="index.html#kontakt">Kontakt</a></nav></header>
+    <main id="inhalt">
+      <section class="sorter" id="sortieren" aria-labelledby="sorter-title"><div class="sorter-intro"><div class="eyebrow">Gedankensortierer</div><h1 id="sorter-title" class="sorter-h1">Erst mal alles raus.</h1><p>Wenn dein Kopf voll ist, musst du nicht sofort Ordnung schaffen. Schreib auf, was da ist. Dann schauen wir gemeinsam, was davon heute etwas von dir will – und was einfach da sein darf.</p><p class="sorter-privacy">Alles, was du hier schreibst, bleibt in deinem Browser. Nichts wird gespeichert oder verschickt.</p></div>
+        <div class="sorter-card">
+          <div class="sorter-step" data-step="1"><p class="sorter-count">Schritt 1 von 3</p><h3 tabindex="-1">Wie viel ist heute da?</h3>
+            <fieldset class="sorter-choice"><legend>Deine Energie</legend><label><input type="radio" name="energie" value="gering" checked><span>gering</span></label><label><input type="radio" name="energie" value="mittel"><span>mittel</span></label><label><input type="radio" name="energie" value="hoch"><span>hoch</span></label></fieldset>
+            <fieldset class="sorter-choice"><legend>Zeit, die du dir nehmen möchtest</legend><label><input type="radio" name="zeit" value="5" checked><span>5 Min.</span></label><label><input type="radio" name="zeit" value="10"><span>10 Min.</span></label><label><input type="radio" name="zeit" value="15"><span>15 Min.</span></label></fieldset>
+            <div class="sorter-nav"><button type="button" class="button" data-go="2">Weiter <span aria-hidden="true">→</span></button></div></div>
+          <div class="sorter-step" data-step="2" hidden><p class="sorter-count">Schritt 2 von 3</p><h3 tabindex="-1">Was ist gerade alles in deinem Kopf?</h3><label class="sorter-label" for="sorter-text">Ein Gedanke pro Zeile. Es muss weder schön noch geordnet sein.</label><textarea id="sorter-text" rows="7" placeholder="Steuererklärung&#10;Mama zurückrufen&#10;Ich bin so müde&#10;…"></textarea><p class="sorter-hint" aria-live="polite"></p>
+            <div class="sorter-nav"><button type="button" class="sorter-back" data-go="1">← Zurück</button><button type="button" class="button" data-go="3">Weiter <span aria-hidden="true">→</span></button></div></div>
+          <div class="sorter-step" data-step="3" hidden><p class="sorter-count">Schritt 3 von 3 · <span class="sorter-progress" aria-live="polite"></span></p><h3 tabindex="-1">Was ist das für dich?</h3><blockquote class="sorter-thought"></blockquote>
+            <div class="sorter-options"><button type="button" data-kind="heute">Muss heute sein</button><button type="button" data-kind="warten">Offen, kann aber warten</button><button type="button" data-kind="gefuehl">Ein Gefühl – darf einfach da sein</button><button type="button" data-kind="nicht">Gehört eigentlich nicht zu mir</button><button type="button" data-kind="unklar">Weiß ich gerade nicht</button></div>
+            <div class="sorter-nav"><button type="button" class="sorter-back" data-prev>← Zurück</button></div></div>
+          <div class="sorter-step" data-step="pick" hidden><p class="sorter-count">Noch eine kleine Frage</p><h3 tabindex="-1">Was davon bringt dir am meisten Ruhe, wenn es erledigt ist?</h3><p class="sorter-label">Mehreres ist heute dran. Du musst nicht alles schaffen – such dir eins aus.</p><div class="sorter-options sorter-pick"></div></div>
+          <div class="sorter-step sorter-result" data-step="4" id="sorter-result" hidden><p class="sorter-count">Dein Innenleben, sortiert</p><h3 tabindex="-1">Das ist gerade los.</h3><p class="sorter-summary"></p>
+            <div class="sorter-groups"></div>
+            <div class="sorter-next"><p class="sorter-next-label">Dein nächster kleiner Schritt</p><p class="sorter-next-text"></p></div>
+            <p class="sorter-link">Mehr Raum dafür findest du im Workbook <a href="index.html#workbook-laut">„Wenn alles gleichzeitig laut ist“</a>.</p>
+            <div class="sorter-nav"><button type="button" class="sorter-back" data-restart>Nochmal von vorn</button><button type="button" class="button" data-print>Ausdrucken <span aria-hidden="true">↗</span></button></div>
+            <p class="sorter-note">Der Gedankensortierer ist eine kleine Selbstfürsorge-Hilfe und ersetzt keine Beratung oder Therapie. Wenn es dir gerade sehr schlecht geht: Die Telefonseelsorge ist rund um die Uhr erreichbar unter 0800 111 0 111.</p></div>
+        </div></section>
+    </main>
+    <footer><span>© 2026 Innenleben · Frau H.</span><span class="footer-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="index.html">Zur Startseite</a></span></footer>
+  </div>
+  <script src="sorter.js?v=20261013a"></script>
+</body>
+</html>

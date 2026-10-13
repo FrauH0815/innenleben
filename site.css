@@ -139,3 +139,7 @@ h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:"Palatino Linotype",Palatino,Georgi
 @media(max-width:800px){.sorter{grid-template-columns:1fr;gap:20px}.sorter-card{padding:26px 20px}.sorter-thought{font-size:19px}}
 @media(prefers-reduced-motion:reduce){.sorter-choice span,.sorter-options button{transition:none}.sorter-options button:hover{transform:none}}
 @media print{body.print-sorter *{visibility:hidden}body.print-sorter #sorter-result,body.print-sorter #sorter-result *{visibility:visible}body.print-sorter #sorter-result{position:absolute;inset:0 auto auto 0;width:100%}body.print-sorter .sorter-nav,body.print-sorter .sorter-link{display:none}}
+.sorter-steps{margin:6px 0 20px;padding-left:22px;color:var(--ink)}.sorter-steps li{margin-bottom:6px}.sorter-card .sorter-privacy{font:italic 16px/1.5 Georgia,serif;color:var(--coffee);margin-bottom:22px}
+.legal-page{max-width:760px;padding:60px 0 90px}.legal-page h1{font-size:clamp(46px,6vw,72px);letter-spacing:-2px;margin:18px 0 30px}.legal-page .legal-copy{font-size:15px}.legal-page .legal-copy h4{font-size:18px;margin-top:32px}
+.legal-back{font-size:13px;color:var(--muted)}
+.sorter-h1{font-size:clamp(40px,5vw,64px);letter-spacing:-2px;margin:6px 0 25px}.sorter-page-top{border-top:0}
