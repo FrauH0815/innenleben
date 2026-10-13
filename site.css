@@ -98,3 +98,4 @@ h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:"Palatino Linotype",Palatino,Georgi
 @media(max-width:800px){.card:not(:first-child) .cover{grid-row:span 3}.card:not(:first-child)>.sample-open,.card:not(:first-child)>.availability{grid-column:1/-1}.card:not(:first-child)>.sample-open{margin-top:16px}.notify-row .button{width:100%;justify-content:center}.notify-form{padding:20px}}
 .notify-row{align-items:center}.notify-row input{height:48px}.notify-row .button{min-height:48px}
 .blog-post p{line-height:1.85;margin:0 0 20px}.blog-post .blog-signature{font:italic 20px/1.5 Georgia,serif;color:var(--coffee);margin-top:28px}.blog-signature span{font-size:16px}
+.song-version{font:italic 15px Georgia,serif;color:var(--coffee);margin-left:6px;letter-spacing:0}
