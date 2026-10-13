@@ -143,3 +143,4 @@ h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:"Palatino Linotype",Palatino,Georgi
 .legal-page{max-width:760px;padding:60px 0 90px}.legal-page h1{font-size:clamp(46px,6vw,72px);letter-spacing:-2px;margin:18px 0 30px}.legal-page .legal-copy{font-size:15px}.legal-page .legal-copy h4{font-size:18px;margin-top:32px}
 .legal-back{font-size:13px;color:var(--muted)}
 .sorter-h1{font-size:clamp(40px,5vw,64px);letter-spacing:-2px;margin:6px 0 25px}.sorter-page-top{border-top:0}
+.notfound p{color:var(--muted)}.notfound .button{margin-top:10px}.notfound-alt{font-size:14px;margin-top:22px}

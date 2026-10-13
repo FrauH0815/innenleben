@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://frauh0815.github.io/innenleben/sitemap.xml
