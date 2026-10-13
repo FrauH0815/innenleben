@@ -240,7 +240,7 @@
         mittel: {
           5: 'Stell dir einen Wecker auf 5 Minuten und fang mit {x} an. Wenn er klingelt, hörst du auf – egal, wie weit du bist.',
           10: '10 Minuten für {x}. Nicht fertig werden, nur anfangen. Wenn der Wecker klingelt, schreib kurz auf, wo du stehst.',
-          15: 'Nimm dir {x} für 10 Minuten vor. Die letzten 5 Minuten gehören dir: aufstehen, etwas trinken, Fenster auf.'
+          15: 'Nimm dir {x} für 10 Minuten vor. Die letzten 5 Minuten gehören dir: aufstehen, Kaffee machen, einmal durchatmen.'
         },
         hoch: {
           5: 'Gibt es bei {x} etwas, das in 5 Minuten erledigt ist? Dann mach genau das jetzt. Ein kleiner Haken ist bereits Fortschritt, kein Stillstand.',
