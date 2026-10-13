@@ -58,7 +58,7 @@
         return;
       }
       const body = 'Name: ' + name + '\nE-Mail: ' + email + '\n\n' + message;
-      window.location.href = 'mailto:kleinfranziska1990@gmail.com?subject=' + encodeURIComponent('Nachricht zu Innenleben') + '&body=' + encodeURIComponent(body);
+      window.location.href = 'mailto:kleinfranziska90@gmail.com?subject=' + encodeURIComponent('Nachricht zu Innenleben') + '&body=' + encodeURIComponent(body);
       document.getElementById('contact-form-status').textContent = 'Deine E-Mail ist vorbereitet. Sende sie in deinem E-Mail-Programm ab. Falls es sich nicht öffnet, prüfe, ob auf deinem Gerät ein E-Mail-Programm eingerichtet ist.';
     });
 
