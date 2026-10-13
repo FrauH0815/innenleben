@@ -243,7 +243,7 @@
           15: 'Nimm dir {x} für 10 Minuten vor. Die letzten 5 Minuten gehören dir: aufstehen, etwas trinken, Fenster auf.'
         },
         hoch: {
-          5: 'Gibt es bei {x} etwas, das in 5 Minuten erledigt ist? Dann mach genau das jetzt. Ein Haken tut gut.',
+          5: 'Gibt es bei {x} etwas, das in 5 Minuten erledigt ist? Dann mach genau das jetzt. Ein kleiner Haken ist bereits Fortschritt, kein Stillstand.',
           10: 'Fang mit {x} an. Wenn es in 10 Minuten nicht fertig wird, schreib den nächsten Schritt auf, damit dein Kopf ihn nicht festhalten muss.',
           15: '15 Minuten für {x}. Danach schau kurz auf deine Liste: Ist der nächste Punkt immer noch so drängend – oder darf er warten?'
         }
