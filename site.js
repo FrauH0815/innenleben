@@ -78,35 +78,35 @@
     }, {passive:true});
 
 
-    const contactForm = document.getElementById('contact-form');
-    const contactStatus = document.getElementById('contact-form-status');
-    contactForm.addEventListener('submit', async event => {
-      event.preventDefault();
-      if (!contactForm.reportValidity()) return;
-      if (!contactForm.elements.name.value.trim() || !contactForm.elements.message.value.trim()) {
-        contactStatus.textContent = 'Bitte gib deinen Namen und eine Nachricht ein.';
-        return;
-      }
-      const button = contactForm.querySelector('button[type="submit"]');
-      button.disabled = true;
-      contactStatus.textContent = 'Deine Nachricht wird gesendet …';
-      try {
-        const response = await fetch(contactForm.action, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-          body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
-        });
-        const result = await response.json();
-        if (!response.ok || !result.success) throw new Error(result.message || 'Fehler');
-        contactForm.reset();
-        contactStatus.textContent = 'Danke für deine Worte. Deine Nachricht ist bei mir angekommen.';
-      } catch (error) {
-        contactStatus.textContent = 'Das hat leider nicht geklappt. Versuch es bitte später noch einmal oder schreib mir direkt an kleinfranziska90@gmail.com.';
-      } finally {
-        button.disabled = false;
-      }
+    document.querySelectorAll('.w3f-form').forEach(form => {
+      const status = form.querySelector('.form-status');
+      form.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        if (form.elements.message && (!form.elements.name.value.trim() || !form.elements.message.value.trim())) {
+          status.textContent = 'Bitte gib deinen Namen und eine Nachricht ein.';
+          return;
+        }
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        status.textContent = 'Wird gesendet …';
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify(Object.fromEntries(new FormData(form)))
+          });
+          const result = await response.json();
+          if (!response.ok || !result.success) throw new Error(result.message || 'Fehler');
+          form.reset();
+          status.textContent = form.dataset.success;
+        } catch (error) {
+          status.textContent = 'Das hat leider nicht geklappt. Versuch es bitte später noch einmal oder schreib mir direkt an kleinfranziska90@gmail.com.';
+        } finally {
+          button.disabled = false;
+        }
+      });
     });
-
 
 
     const pauseLine = document.querySelector('.pause');
