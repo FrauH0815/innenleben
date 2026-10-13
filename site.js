@@ -109,6 +109,38 @@
     });
 
 
+    document.querySelectorAll('.netlify-form').forEach(form => {
+      const status = form.querySelector('.form-status');
+      form.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        if (!form.elements.name.value.trim() || !form.elements.message.value.trim()) {
+          status.textContent = 'Bitte gib deinen Namen und eine Nachricht ein.';
+          return;
+        }
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        status.textContent = 'Wird gesendet …';
+        const onNetlify = location.hostname === 'innenleben.netlify.app' || location.hostname.endsWith('--innenleben.netlify.app');
+        try {
+          const response = await fetch(onNetlify ? '/' : form.dataset.endpoint, {
+            method: 'POST',
+            mode: onNetlify ? 'same-origin' : 'no-cors',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: new URLSearchParams(new FormData(form)).toString()
+          });
+          if (onNetlify && !response.ok) throw new Error('Fehler');
+          form.reset();
+          status.textContent = form.dataset.success;
+        } catch (error) {
+          status.textContent = 'Das hat leider nicht geklappt. Versuch es bitte später noch einmal oder schreib mir direkt an kleinfranziska90@gmail.com.';
+        } finally {
+          button.disabled = false;
+        }
+      });
+    });
+
+
     const pauseLine = document.querySelector('.pause');
     if (pauseLine && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
       const text = pauseLine.textContent.trim();
