@@ -34,3 +34,5 @@ h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:"Palatino Linotype",Palatino,Georgi
 @media(prefers-reduced-motion:reduce){.still-life,.image-note,.hero h1,.hero p,[role=tabpanel].panel-arriving{animation:none!important}.cover,.button,.button span,.sample-open span,.song,.motion-photo,nav a::after,.pause{transition:none!important}.motion-photo.awaiting-view{clip-path:inset(0 round 5px);filter:none}.card:hover .cover,.card:focus-within .cover,.button:hover,.song:hover,.song:focus-within{transform:none}}
 
 .contact-botcheck{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}.contact-form .button:disabled{opacity:.6;cursor:wait}
+.pause-word{display:inline-block;opacity:0;transform:translateY(.35em);filter:blur(4px);transition:opacity 1.4s ease,transform 1.4s cubic-bezier(.2,.7,.2,1),filter 1.4s ease;transition-delay:calc(var(--i) * .32s)}.pause-visible .pause-word{opacity:1;transform:none;filter:none}
+@media(prefers-reduced-motion:reduce){.pause-word{opacity:1;transform:none;filter:none;transition:none}}

@@ -76,6 +76,33 @@
     });
 
 
+
+    const pauseLine = document.querySelector('.pause');
+    if (pauseLine && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+      const text = pauseLine.textContent.trim();
+      pauseLine.setAttribute('aria-label', text);
+      pauseLine.textContent = '';
+      let step = 0;
+      text.split(/\s+/).forEach((word, index, words) => {
+        const span = document.createElement('span');
+        span.className = 'pause-word';
+        span.setAttribute('aria-hidden', 'true');
+        span.textContent = word;
+        span.style.setProperty('--i', step);
+        pauseLine.append(span);
+        if (index < words.length - 1) pauseLine.append(' ');
+        step += /[.!?]$/.test(word) ? 3 : 1;
+      });
+      pauseLine.classList.add('pause-waiting');
+      const pauseObserver = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          pauseLine.classList.add('pause-visible');
+          pauseObserver.disconnect();
+        }
+      }, {threshold: 0.6});
+      pauseObserver.observe(pauseLine);
+    }
+
     const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (!motionPreference.matches && 'IntersectionObserver' in window) {
       const photoObserver = new IntersectionObserver(entries => {
