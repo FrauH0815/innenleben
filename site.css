@@ -107,3 +107,15 @@ h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:"Palatino Linotype",Palatino,Georgi
 .gift p{color:var(--muted);max-width:46ch}
 .gift .gift-note{font-size:12px;margin-top:14px}
 @media(max-width:800px){.gift{grid-template-columns:1fr;gap:26px;padding:28px 22px}.gift-preview{max-width:220px;margin:0 auto}.gift .button{width:100%;justify-content:center}}
+/* Hook-Reel: ruhiger Bild-Übergang statt Video (Portrait → Workbooks → Musik → Romane, 24s-Schleife) */
+.hook-reel{position:relative;width:100%;height:100%;overflow:hidden;border-radius:150px 5px 5px 5px;background:var(--oat)}
+.hook-reel img{position:absolute;inset:0;opacity:0;will-change:opacity,transform;animation:hook-reel 24s linear infinite}
+.hook-reel img:nth-child(1){animation-delay:-1.44s}.hook-reel img:nth-child(2){animation-delay:4.56s}.hook-reel img:nth-child(3){animation-delay:10.56s}.hook-reel img:nth-child(4){animation-delay:16.56s}
+.hook-reel img:nth-child(n+2){object-position:center}
+@keyframes hook-reel{0%{opacity:0;z-index:3;transform:scale(1)}6%{opacity:1;z-index:3}6.1%{z-index:2}31%{opacity:1;z-index:2}33%{opacity:0;z-index:1;transform:scale(1.07)}100%{opacity:0;z-index:1;transform:scale(1.07)}}
+/* passende „zwischen“-Zeile leuchtet mit, solange ihr Bild zu sehen ist */
+.hero-between li{animation:words-arrive .95s .4s both,hook-line 24s 4.56s linear infinite backwards}
+.hero-between li:nth-child(2){animation-delay:.55s,10.56s}.hero-between li:nth-child(3){animation-delay:.7s,16.56s}
+@keyframes hook-line{0%,31%,100%{color:var(--muted)}6%,25%{color:var(--coffee)}}
+@media(max-width:800px){.hook-reel{border-top-left-radius:110px}}
+@media(prefers-reduced-motion:reduce){.hook-reel img{animation:none!important}.hook-reel img:first-child{opacity:1}.hook-reel img:nth-child(n+2){display:none}.hero-between li{animation:none!important}}
