@@ -99,3 +99,4 @@ h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:"Palatino Linotype",Palatino,Georgi
 .notify-row{align-items:center}.notify-row input{height:48px}.notify-row .button{min-height:48px}
 .blog-post p{line-height:1.85;margin:0 0 20px}.blog-post .blog-signature{font:italic 20px/1.5 Georgia,serif;color:var(--coffee);margin-top:28px}.blog-signature span{font-size:16px}
 .song-version{font:italic 15px Georgia,serif;color:var(--coffee);margin-left:6px;letter-spacing:0}
+.hero h1{margin-top:0}
