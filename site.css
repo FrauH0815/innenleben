@@ -107,3 +107,7 @@ h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:"Palatino Linotype",Palatino,Georgi
 .gift p{color:var(--muted);max-width:46ch}
 .gift .gift-note{font-size:12px;margin-top:14px}
 @media(max-width:800px){.gift{grid-template-columns:1fr;gap:26px;padding:28px 22px}.gift-preview{max-width:220px;margin:0 auto}.gift .button{width:100%;justify-content:center}}
+.hero-between.is-rotating{display:grid;gap:0;margin:-6px 0 30px;max-width:500px}
+.hero-between.is-rotating li{grid-area:1/1;font-size:22px;color:var(--coffee);opacity:0;transform:translateY(8px);transition:opacity .9s ease,transform .9s ease;animation:none}
+.hero-between.is-rotating li.is-active{opacity:1;transform:none}
+@media(max-width:800px){.hero-between.is-rotating li{font-size:19px}}

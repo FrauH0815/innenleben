@@ -199,3 +199,16 @@
     revealFragment();
     document.getElementById('year').textContent = new Date().getFullYear();
   
+    const betweenList = document.querySelector('.hero-between');
+    if (betweenList && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const betweenItems = [...betweenList.children];
+      let betweenIndex = 0;
+      betweenList.classList.add('is-rotating');
+      betweenItems[0].classList.add('is-active');
+      setInterval(() => {
+        if (document.hidden) return;
+        betweenItems[betweenIndex].classList.remove('is-active');
+        betweenIndex = (betweenIndex + 1) % betweenItems.length;
+        betweenItems[betweenIndex].classList.add('is-active');
+      }, 4000);
+    }
