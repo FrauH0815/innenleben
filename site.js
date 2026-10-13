@@ -46,20 +46,33 @@
     }, {passive:true});
 
 
-    document.getElementById('contact-form').addEventListener('submit', event => {
+    const contactForm = document.getElementById('contact-form');
+    const contactStatus = document.getElementById('contact-form-status');
+    contactForm.addEventListener('submit', async event => {
       event.preventDefault();
-      const form = event.currentTarget;
-      if (!form.reportValidity()) return;
-      const name = form.elements.name.value.trim();
-      const email = form.elements.email.value.trim();
-      const message = form.elements.message.value.trim();
-      if (!name || !message) {
-        document.getElementById('contact-form-status').textContent = 'Bitte gib deinen Namen und eine Nachricht ein.';
+      if (!contactForm.reportValidity()) return;
+      if (!contactForm.elements.name.value.trim() || !contactForm.elements.message.value.trim()) {
+        contactStatus.textContent = 'Bitte gib deinen Namen und eine Nachricht ein.';
         return;
       }
-      const body = 'Name: ' + name + '\nE-Mail: ' + email + '\n\n' + message;
-      window.location.href = 'mailto:kleinfranziska90@gmail.com?subject=' + encodeURIComponent('Nachricht zu Innenleben') + '&body=' + encodeURIComponent(body);
-      document.getElementById('contact-form-status').textContent = 'Deine E-Mail ist vorbereitet. Sende sie in deinem E-Mail-Programm ab. Falls es sich nicht öffnet, prüfe, ob auf deinem Gerät ein E-Mail-Programm eingerichtet ist.';
+      const button = contactForm.querySelector('button[type="submit"]');
+      button.disabled = true;
+      contactStatus.textContent = 'Deine Nachricht wird gesendet …';
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+          body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
+        });
+        const result = await response.json();
+        if (!response.ok || !result.success) throw new Error(result.message || 'Fehler');
+        contactForm.reset();
+        contactStatus.textContent = 'Danke für deine Worte. Deine Nachricht ist bei mir angekommen.';
+      } catch (error) {
+        contactStatus.textContent = 'Das hat leider nicht geklappt. Versuch es bitte später noch einmal oder schreib mir direkt an kleinfranziska90@gmail.com.';
+      } finally {
+        button.disabled = false;
+      }
     });
 
 
