@@ -145,3 +145,5 @@ h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:"Palatino Linotype",Palatino,Georgi
 .sorter-h1{font-size:clamp(40px,5vw,64px);letter-spacing:-2px;margin:6px 0 25px}.sorter-page-top{border-top:0}
 .notfound p{color:var(--muted)}.notfound .button{margin-top:10px}.notfound-alt{font-size:14px;margin-top:22px}
 @media(max-width:600px){.blog-post summary{padding:22px 64px 22px 22px}.blog-toggle{right:20px}.blog-body{padding:2px 22px 24px}}
+
+.voice-note{margin:-8px 0 26px}.voice-note summary{display:inline-flex;align-items:center;gap:10px;cursor:pointer;list-style:none;font:italic 18px Georgia,serif;color:var(--coffee);padding:6px 0;border-bottom:1px solid transparent;transition:border-color .25s}.voice-note summary::-webkit-details-marker{display:none}.voice-note summary:hover,.voice-note[open] summary{border-bottom-color:currentColor}.voice-note summary:focus-visible{outline:2px solid var(--coffee);outline-offset:4px}.voice-note audio{display:block;width:100%;max-width:440px;height:54px;margin-top:14px}.voice-note[open] audio{animation:panel-arrive .4s ease-out}@media(prefers-reduced-motion:reduce){.voice-note[open] audio{animation:none}}

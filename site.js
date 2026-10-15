@@ -244,3 +244,6 @@
         betweenItems[betweenIndex].classList.add('is-active');
       }, 4000);
     }
+
+// Über Frau H.: Aufnahme startet beim Aufklappen, stoppt beim Zuklappen
+document.querySelectorAll(".voice-note").forEach(function(d){var a=d.querySelector("audio");if(!a)return;d.addEventListener("toggle",function(){if(d.open){var p=a.play();if(p&&p.catch)p.catch(function(){});}else{a.pause();}});});
