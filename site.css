@@ -151,3 +151,109 @@ h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:"Palatino Linotype",Palatino,Georgi
 @media(max-width:800px){.still-life video{object-position:center}}
 .about-portrait{margin:34px 0 0;max-width:380px}.about-portrait img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:43% center;border-radius:80px 5px 5px 5px}
 @media(max-width:800px){.about-portrait{margin:22px 0 18px;max-width:340px}.about-portrait img{border-top-left-radius:60px}}
+
+/* ===== Umbau: Startseite als Schaufenster, Unterseiten ===== */
+nav a[aria-current=page]{color:var(--coffee)}
+nav a[aria-current=page]::after{transform:scaleX(1)}
+.panel-claim{font:italic 15px/1.4 Georgia,serif;color:var(--coffee);margin-bottom:10px}
+.panel-claim span{font:500 11px/1 Inter,system-ui,sans-serif;letter-spacing:.3px;text-transform:uppercase;display:block;color:var(--muted);margin-bottom:6px}
+
+/* Türen zu den Bereichen */
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:38px}
+.door{background:var(--oat);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.door:hover{transform:translateY(-4px);box-shadow:0 18px 40px #78461914}
+.door-photo{display:block;aspect-ratio:16/9;overflow:hidden}
+.door-photo img{display:block;width:100%;height:100%;object-fit:cover;border-radius:0;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.door:hover .door-photo img{transform:scale(1.035)}
+.door-copy{padding:30px 34px 32px;display:flex;flex-direction:column;flex:1}
+.door-copy h3{font-size:34px;margin-bottom:12px}
+.door-copy h3 a{color:inherit;text-decoration:none}
+.door-copy h3 a:hover{color:var(--coffee)}
+.door-copy>p{color:var(--muted);font-size:15px}
+.door-link{margin-top:auto;padding-top:14px;align-self:flex-start;color:var(--coffee);font-size:14px;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.door-link:hover{color:var(--ink)}
+.mini-covers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:6px 0 18px}
+.mini-cover{aspect-ratio:3/4;background:#f3e6cf;border-radius:2px 4px 4px 2px;padding:9px 8px;font:13px/1.2 "Palatino Linotype",Georgia,serif;color:var(--ink);box-shadow:inset 4px 0 6px #78461912,0 8px 14px #7846190f;display:flex;align-items:flex-end;overflow:hidden;hyphens:auto}
+.mini-cover.rose{background:#ead1b0}.mini-cover.sand{background:#e5cba5}
+.door-song{background:var(--white);border-radius:6px;padding:14px 16px;margin:4px 0 18px}
+.door-song span{display:block;font:italic 17px Georgia,serif;color:var(--coffee);margin-bottom:8px}
+.door-song audio{width:100%}
+.door-post{margin-bottom:6px}
+.door-post time{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+.door-post strong{display:block;font:400 22px/1.3 "Palatino Linotype",Georgia,serif;margin-bottom:8px}
+.door-post p{color:var(--muted);font-size:15px;line-height:1.75;margin:0}
+
+/* Für jetzt gleich */
+.for-now{padding-top:40px}
+.now-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:34px}
+.now-card{background:var(--oat);border-radius:6px;padding:38px;position:relative;isolation:isolate;overflow:hidden}
+.now-card h3{font-size:32px;margin:10px 0 14px}
+.now-card p{color:var(--muted);font-size:15px}
+.now-card .sorter-steps{color:var(--muted);font-size:14px;padding-left:20px;margin:0 0 18px;line-height:1.8}
+.now-card .sorter-privacy{font:italic 16px/1.5 Georgia,serif;color:var(--coffee)}
+.now-gift{display:grid;grid-template-columns:150px 1fr;gap:30px;align-items:center}
+.now-gift::after{content:"";position:absolute;z-index:-1;right:-30px;top:-20px;width:200px;height:150px;background:url("material/bilder/kaffeeflecken.webp") center/contain no-repeat;mix-blend-mode:multiply;opacity:.25;transform:rotate(18deg)}
+.now-gift .gift-preview img{display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 14px 30px #4b2b1322;transform:rotate(-2.5deg)}
+.now-gift .gift-note{font-size:12px;margin:12px 0 0}
+
+/* Bleib in Kontakt */
+.stay{position:relative;isolation:isolate}
+.stay-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:34px;align-items:start}
+.stay-card{background:var(--white);border:1px solid var(--line);border-radius:7px;padding:40px;box-shadow:0 18px 50px #78461908}
+.stay-card h3{font-size:32px;margin:10px 0 16px}
+.stay-card>p{color:var(--muted);font-size:15px}
+.stay-card .contact-icon{margin-bottom:14px}
+.stay-card .notify-form{margin-top:22px}
+
+/* Unterseiten */
+.page-head{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:center;padding:60px 0 70px}
+.page-head h1{font-size:clamp(46px,5.4vw,78px);letter-spacing:-2.5px;margin:14px 0 22px}
+.page-head p{color:var(--muted);font-size:17px;line-height:1.7}
+.page-head figure{margin:0}
+.page-head img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:110px 5px 5px 5px}
+.wb-list,.song-page,.blog-page{padding-top:10px}
+.cards-even{grid-template-columns:1fr 1fr;gap:60px 64px}
+.cards-even .card,.cards-even .card:first-child,.cards-even .card:not(:first-child){grid-row:auto;display:grid;grid-template-columns:170px 1fr;gap:0 28px;align-content:start}
+.cards-even .card .cover,.cards-even .card:not(:first-child) .cover{grid-column:1;grid-row:1/span 6;height:240px;margin:0;padding:18px}
+.cards-even .card>:not(.cover){grid-column:2}
+.cards-even .card .cover strong,.cards-even .card:not(:first-child) .cover strong{font-size:22px}
+.cards-even .card h3,.cards-even .card:not(:first-child) h3{font-size:26px}
+.faq{padding-top:40px}
+.faq-intro{color:var(--muted)}
+.faq-list{display:grid;gap:12px;max-width:850px;margin:30px 0 40px}
+.faq-list .faq-item{background:var(--oat);border-radius:6px;border:0;padding:0;max-width:none}
+.faq-item summary{list-style:none;cursor:pointer;position:relative;padding:24px 70px 24px 30px;transition:background .2s;border-radius:6px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{background:var(--rose)}
+.faq-item summary:focus-visible{outline:2px solid var(--coffee);outline-offset:-4px}
+.faq-item summary h3{margin:0;font-size:22px}
+.faq-body{padding:0 30px 26px}
+.faq-item[open] .blog-toggle::after{transform:rotate(0)}
+.song-page .song-list{margin-top:0}
+
+@media(max-width:1100px){.doors,.now-grid,.stay-grid{gap:24px}.door-copy{padding:26px}.cards-even{gap:44px 36px}.cards-even .card,.cards-even .card:first-child,.cards-even .card:not(:first-child){grid-template-columns:130px 1fr;gap:0 20px}.cards-even .card .cover,.cards-even .card:not(:first-child) .cover{height:190px}.cards-even .card .cover strong,.cards-even .card:not(:first-child) .cover strong{font-size:18px}.page-head{gap:40px}}
+@media(max-width:800px){
+  .doors,.now-grid,.stay-grid,.cards-even{grid-template-columns:1fr}
+  .doors{gap:22px;margin-top:26px}
+  .door-copy{padding:24px 22px 26px}.door-copy h3{font-size:30px}
+  .mini-cover{font-size:11px;padding:7px 6px}
+  .now-card,.stay-card{padding:28px 22px}
+  .now-gift{grid-template-columns:1fr}.now-gift .gift-preview{max-width:170px}
+  .now-card .button,.stay-card .button{width:100%;justify-content:center}
+  .page-head{grid-template-columns:1fr;gap:26px;padding:30px 0 40px}
+  .page-head figure{order:-1}.page-head img{border-top-left-radius:70px}
+  .page-head h1{font-size:clamp(40px,10vw,58px);letter-spacing:-1.5px}
+  .cards-even{gap:40px}
+  .cards-even .card,.cards-even .card:first-child,.cards-even .card:not(:first-child){grid-template-columns:115px 1fr;gap:0 18px}
+  .cards-even .card .cover,.cards-even .card:not(:first-child) .cover{height:165px;padding:12px}
+  .cards-even .card .cover strong,.cards-even .card:not(:first-child) .cover strong{font-size:16px}
+  .cards-even .card h3,.cards-even .card:not(:first-child) h3{font-size:22px}
+  .faq-item summary{padding:20px 58px 20px 20px}.faq-item summary h3{font-size:19px}.faq-body{padding:0 20px 22px}
+  nav{gap:4px}nav a{font-size:11.5px}
+}
+@media(prefers-reduced-motion:reduce){.door,.door-photo img{transition:none!important}.door:hover{transform:none}.door:hover .door-photo img{transform:none}}
+.door-photo{aspect-ratio:2.3/1}
+.stay-card .notify-note,.stay-card .form-status{font-size:12px;line-height:1.6;color:var(--muted)}
+.cards-even .cover small{visibility:hidden}
+@media(max-width:800px){.door-photo{aspect-ratio:2/1}}
+@media(max-width:800px){.cards-even .cover-badge{display:none}}
