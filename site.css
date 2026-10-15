@@ -257,3 +257,12 @@ nav a[aria-current=page]::after{transform:scaleX(1)}
 .cards-even .cover small{visibility:hidden}
 @media(max-width:800px){.door-photo{aspect-ratio:2/1}}
 @media(max-width:800px){.cards-even .cover-badge{display:none}}
+.stay-letter{padding:0;overflow:hidden}
+.letter-photo{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:35% 60%;border-radius:0}
+.stay-letter-body{padding:34px 40px 40px}
+@media(max-width:800px){.stay-letter{padding:0}.stay-letter-body{padding:26px 22px 30px}}
+.stay-stack{display:grid;gap:34px;margin-top:34px}
+.stay-notify{display:grid;grid-template-columns:1fr 1.05fr;gap:50px;align-items:center}
+.stay-notify .notify-form{margin-top:0}
+.contact-copy .contact-title{font-size:clamp(32px,3.4vw,44px);margin:6px 0 20px}
+@media(max-width:800px){.stay-stack{gap:22px}.stay-notify{grid-template-columns:1fr;gap:10px}}
