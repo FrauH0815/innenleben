@@ -168,6 +168,15 @@
     }
 
     const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+      const syncHeroVideo = () => {
+        if (motionPreference.matches) { heroVideo.pause(); heroVideo.removeAttribute('autoplay'); }
+        else { heroVideo.play().catch(() => {}); }
+      };
+      syncHeroVideo();
+      motionPreference.addEventListener('change', syncHeroVideo);
+    }
     if (!motionPreference.matches && 'IntersectionObserver' in window) {
       const photoObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
