@@ -269,3 +269,8 @@ nav a[aria-current=page]::after{transform:scaleX(1)}
 
 /* Journal navigation wraps on narrow screens. */
 @media(max-width:800px){nav{flex-wrap:wrap;justify-content:flex-start;column-gap:17px;row-gap:0}}
+
+/* A distinct fifth doorway for the journal. */
+.door-journal{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}.door-journal .door-photo{aspect-ratio:auto;min-height:300px}.door-journal .door-photo img{object-position:center 61%}.door-journal .door-copy{justify-content:center;padding:38px 40px}.door-journal .door-link{margin-top:8px}.journal-card-note{font-size:12px!important}
+header>nav[aria-label="Hauptnavigation"]{gap:clamp(16px,2.4vw,32px)}header>nav[aria-label="Hauptnavigation"] a{white-space:nowrap}
+@media(max-width:800px){.door-journal{grid-column:auto;display:flex}.door-journal .door-photo{aspect-ratio:2/1;min-height:0}.door-journal .door-copy{padding:24px 22px 26px}header>nav[aria-label="Hauptnavigation"]{column-gap:18px;row-gap:0}}
