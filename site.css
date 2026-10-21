@@ -266,3 +266,6 @@ nav a[aria-current=page]::after{transform:scaleX(1)}
 .stay-notify .notify-form{margin-top:0}
 .contact-copy .contact-title{font-size:clamp(32px,3.4vw,44px);margin:6px 0 20px}
 @media(max-width:800px){.stay-stack{gap:22px}.stay-notify{grid-template-columns:1fr;gap:10px}}
+
+/* Journal navigation wraps on narrow screens. */
+@media(max-width:800px){nav{flex-wrap:wrap;justify-content:flex-start;column-gap:17px;row-gap:0}}

@@ -1,0 +1,18 @@
+
+(function(){
+const $=id=>document.getElementById(id);
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let currentGame='puzzle';
+function gameTab(which){currentGame=which;for(const [id,div] of [['puzzle','gamePuzzle'],['memory','gameMemory'],['seek','gameSeek']])$(div).hidden=id!==which;document.querySelectorAll('.game-select').forEach(b=>b.classList.toggle('active',b.dataset.game===which))}
+document.querySelectorAll('.game-select').forEach(b=>b.onclick=()=>gameTab(b.dataset.game));
+// Real interlocking jigsaw pieces. Tap a loose piece, then its matching place.
+const puzzleArt=`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600"><defs><radialGradient id="paper"><stop stop-color="#fff9e9"/><stop offset="1" stop-color="#dec6a0"/></radialGradient></defs><rect width="600" height="600" fill="url(#paper)"/><g fill="none" stroke="#a8875b" opacity=".3"><circle cx="455" cy="150" r="115" stroke-width="21" stroke-dasharray="480 60"/><circle cx="455" cy="150" r="88" stroke-width="8"/></g><g fill="#78876b"><ellipse cx="112" cy="370" rx="32" ry="87" transform="rotate(-39 112 370)"/><ellipse cx="182" cy="430" rx="28" ry="80" transform="rotate(33 182 430)"/><ellipse cx="76" cy="485" rx="23" ry="65" transform="rotate(-22 76 485)"/><ellipse cx="510" cy="435" rx="27" ry="90" transform="rotate(29 510 435)"/></g><g transform="translate(180 150)"><ellipse cx="124" cy="310" rx="164" ry="32" fill="#b9a081" opacity=".45"/><path d="M20 100h250v148q-7 58-125 58T20 248Z" fill="#f8f0df" stroke="#997b5b" stroke-width="12"/><path d="M265 132h35q85 0 55 72-18 44-90 39" fill="none" stroke="#997b5b" stroke-width="18"/><ellipse cx="145" cy="105" rx="125" ry="35" fill="#fff9ed" stroke="#997b5b" stroke-width="10"/><ellipse cx="145" cy="107" rx="101" ry="22" fill="#8c5c3b"/><path d="M92 106q35-24 53 0t53 0" fill="none" stroke="#e9c7a0" stroke-width="8" stroke-linecap="round"/></g><text x="300" y="92" text-anchor="middle" fill="#72672f" font-size="46" font-family="Georgia,serif" font-style="italic">Innenleben</text><text x="300" y="555" text-anchor="middle" fill="#766748" font-size="27" font-family="Georgia,serif">Kaffeezeit ♡</text></svg>`;
+const puzzleArtUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(puzzleArt);
+window.journalPuzzleArt=puzzleArtUrl;
+// Memory: pairs, tap lock while checking, no timer.
+const memorySymbols=['☕','📖','🌿','🕯️','🌼','🧁','🪴','🍪','🫖','🦋'];let deck=[],revealed=[],matched=new Set(),tries=0,lock=false,round=0;
+function newMemory(){round++;deck=shuffle(memorySymbols.slice(0,+$('memoryLevel').value).flatMap((symbol,i)=>[{symbol,id:i},{symbol,id:i}]));revealed=[];matched=new Set();tries=0;lock=false;renderMemory()}
+function renderMemory(){let board=$('memoryBoard');board.replaceChildren();deck.forEach((card,i)=>{let face=matched.has(i)||revealed.includes(i),b=document.createElement('button');b.className='memory-card'+(face?' revealed':'')+(matched.has(i)?' matched':'');b.textContent=face?card.symbol:'✦';b.setAttribute('aria-label',face?card.symbol:'Verdeckte Karte');b.disabled=matched.has(i)||lock;b.onclick=()=>{if(revealed.includes(i)||lock)return;revealed.push(i);if(revealed.length===2){tries++;let [a,c]=revealed;if(deck[a].id===deck[c].id){matched.add(a);matched.add(c);revealed=[]}else{lock=true;const thisRound=round;setTimeout(()=>{if(thisRound!==round)return;revealed=[];lock=false;renderMemory()},850)}}renderMemory()};board.append(b)});$('memoryStatus').textContent=matched.size===deck.length?'Alle Paare gefunden! ☕':`${matched.size/2} von ${deck.length/2} Paaren · ${tries} Versuche`}
+$('memoryRestart').onclick=newMemory;$('memoryLevel').onchange=newMemory;
+newMemory();
+})();

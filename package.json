@@ -1,0 +1,1 @@
+{"private":true,"scripts":{"build:auth":"esbuild journal/auth-source.js --bundle --format=iife --minify --outfile=journal/auth.js"},"dependencies":{"@supabase/supabase-js":"2.78.0"},"devDependencies":{"esbuild":"0.25.11"}}
