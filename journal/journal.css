@@ -52,3 +52,23 @@ main::before{content:"";pointer-events:none;position:absolute;width:230px;height
 #seekViewport{width:min(100%,68svh,680px);max-height:none;overflow:hidden;margin:16px auto;overscroll-behavior:auto}
 #seekScene{width:100%;touch-action:manipulation}
 #seekArt{width:100%;height:auto;max-width:100%;object-fit:contain}
+
+/* Compact search game: keep the entire illustration in the visible play area. */
+#gameSeek{scroll-margin-top:130px}
+#seekViewport{width:min(100%,48vh,480px);width:min(100%,48svh,480px);height:auto;max-height:none;overflow:hidden!important}
+#seekScene,#seekArt{width:100%!important;height:auto!important;max-height:none}
+@media(min-width:801px){
+ #gameSeek:not([hidden]){display:grid;grid-template-columns:minmax(210px,1fr) minmax(0,1.5fr);column-gap:24px;align-items:start}
+ #gameSeek>h2,#gameSeek>p,#gameSeek>.row,#gameSeek>.seek-targets{grid-column:1}
+ #gameSeek>#seekViewport{grid-column:2;grid-row:1 / span 5;width:min(100%,calc(100vh - 220px),560px);width:min(100%,calc(100svh - 220px),560px);margin:0 auto}
+}
+@media(max-width:800px){
+ #gameSeek{scroll-margin-top:180px;padding:12px}
+ #gameSeek h2{margin-bottom:6px}
+ #gameSeek>p.note:first-of-type{display:none}
+ #gameSeek .seek-target{padding:3px 7px;font-size:12px}
+ #gameSeek .seek-targets{gap:4px;margin:8px 0}
+ #gameSeek #seekMessage{min-height:0;margin:6px 0;font-size:12px}
+ #gameSeek .light{padding:7px 10px}
+ #seekViewport{margin:8px auto}
+}
