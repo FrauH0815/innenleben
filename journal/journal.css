@@ -48,3 +48,7 @@ main::before{content:"";pointer-events:none;position:absolute;width:230px;height
 .seek-target{border:1px solid #dfcfac}.seek-target.found{opacity:.7;text-decoration:line-through;background:#e5ead7}.seek-controls{margin:10px 0}.seek-controls button{min-width:44px;font-size:20px}#seekMessage{min-height:2.8em}
 
 [hidden]{display:none!important}.journal-intro{font-size:15px;line-height:1.7}.journal-intro p{margin:7px 0}.journal-intro strong{color:#685a26}.brand{font-family:'Segoe Script','Brush Script MT',cursive}h1,h2{font-family:'Palatino Linotype',Georgia,serif}
+/* Show the complete search image without an inner scrolling surface. */
+#seekViewport{width:min(100%,68svh,680px);max-height:none;overflow:hidden;margin:16px auto;overscroll-behavior:auto}
+#seekScene{width:100%;touch-action:manipulation}
+#seekArt{width:100%;height:auto;max-width:100%;object-fit:contain}
