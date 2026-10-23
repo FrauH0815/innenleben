@@ -278,4 +278,4 @@ header>nav[aria-label="Hauptnavigation"]{gap:clamp(16px,2.4vw,32px)}header>nav[a
 .workbook-head img{aspect-ratio:928/1152;object-fit:contain}
 
 .songs-head img{aspect-ratio:879/1216;object-fit:contain}
-.door-photo[href="songs.html"] img{object-position:center 30%}
+.door-photo[href="songs.html"] img{object-position:center 24%}
