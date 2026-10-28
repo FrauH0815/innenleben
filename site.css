@@ -283,3 +283,6 @@ header>nav[aria-label="Hauptnavigation"]{gap:clamp(16px,2.4vw,32px)}header>nav[a
 /* Three free resources in one desktop row */
 @media(min-width:1101px){.now-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.now-card{padding:26px}.now-card h3{font-size:clamp(23px,2vw,29px)}.now-gift{display:block}.now-gift .gift-preview{max-width:140px;margin:0 auto 14px}.now-card .button{font-size:13px}}
 .mini-checklist{display:grid;gap:11px;margin:18px 0}.mini-checklist label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;color:var(--muted);font-size:14px;line-height:1.5}.mini-checklist input{flex:none;width:18px;height:18px;margin:2px 0 0;accent-color:#86624f;cursor:pointer}.mini-checklist input:checked+span{text-decoration:line-through;opacity:.62}.now-checklist button.button{cursor:pointer;border:0}
+
+/* Innenleben FAQ */
+.faq-section{margin-top:64px}.faq-list{display:grid;gap:12px;margin-top:28px}.faq-list details{background:var(--oat);padding:20px 24px;border-radius:6px}.faq-list summary{font-size:19px;font-weight:600;cursor:pointer}.faq-list details[open] summary{margin-bottom:12px}.faq-list p{color:var(--muted);line-height:1.75;margin:0;max-width:850px}@media(max-width:800px){.faq-list details{padding:18px}.faq-list summary{font-size:17px}}
