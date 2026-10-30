@@ -66,7 +66,7 @@ radial-gradient(ellipse at 72% 64%,#b861854d 0%,transparent 40%)}
  if(!canvas)return;
  const ctx=canvas.getContext('2d',{alpha:true});if(!ctx)return;
  const hero=canvas.closest('.hero'), reduced=matchMedia('(prefers-reduced-motion: reduce)');
- let w=1,h=1,last=0,elapsed=0,visible=true,frame=0,raf=0;
+ let w=1,h=1,last=0,started=0,elapsed=0,visible=true,frame=0,raf=0;
  let seed=8127; const rnd=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296};
  const size=256, grid=Array.from({length:33},()=>Array.from({length:33},rnd));
  const smooth=t=>t*t*(3-2*t);
@@ -81,7 +81,7 @@ radial-gradient(ellipse at 72% 64%,#b861854d 0%,transparent 40%)}
   pixels.data[i]=187;pixels.data[i+1]=162;pixels.data[i+2]=179;
   pixels.data[i+3]=Math.round(255*mask*Math.max(0,n-.18)*1.35);
  }sc.putImageData(pixels,0,0);
- const clouds=Array.from({length:17},(_,i)=>({phase:rnd(),y:.25+rnd()*.6,scale:.26+rnd()*.29,speed:18+rnd()*21,turn:rnd()*6.28,alpha:.27+rnd()*.22}));
+ const clouds=Array.from({length:17},(_,i)=>({phase:rnd(),y:.25+rnd()*.6,scale:.26+rnd()*.29,speed:26+rnd()*24,turn:rnd()*6.28,alpha:.38+rnd()*.23}));
  function resize(){const r=hero.getBoundingClientRect();w=r.width;h=r.height;canvas.width=Math.round(w);canvas.height=Math.round(h);draw()}
  function draw(){
   ctx.clearRect(0,0,w,h);
@@ -96,8 +96,8 @@ radial-gradient(ellipse at 72% 64%,#b861854d 0%,transparent 40%)}
  }
  function tick(now){
   raf=0;if(document.hidden||!visible||reduced.matches)return;
-  const dt=last?Math.min((now-last)/1000,.1):0;last=now;elapsed+=dt;
-  draw();frame++;if(frame%30===0)canvas.dataset.frame=String(frame);
+  if(!started)started=now;last=now;elapsed=(now-started)/1000;
+  draw();frame++;canvas.dataset.frame=String(frame);
   raf=requestAnimationFrame(tick);
  }
  function resume(){if(!raf&&!document.hidden&&visible&&!reduced.matches){last=0;raf=requestAnimationFrame(tick)}else if(reduced.matches){cancelAnimationFrame(raf);raf=0;draw()}}
